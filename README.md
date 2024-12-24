@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shop App - React 组件通信练习项目
 
-## Getting Started
+这是一个用于练习 React 组件树和三种组件通信方式的商城项目。
 
-First, run the development server:
+## 项目目标
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+练习并掌握 React 的三种组件通信方式：
+1. Props 传递（父子组件通信）
+2. Context（跨层级组件通信）
+3. 状态管理（全局状态管理）
+
+## 技术栈
+
+- Next.js 14
+- React 19
+- TypeScript
+- Tailwind CSS
+- shadcn/ui 组件库
+
+## 项目结构
+
+```
+shop_app/
+├── src/
+│   ├── app/                    # Next.js 应用主目录
+│   │   ├── layout.tsx         # 全局布局
+│   │   └── page.tsx          # 首页
+│   ├── components/            # 组件目录
+│   │   ├── ui/               # UI基础组件（shadcn）
+│   │   ├── layout/           # 布局组件
+│   │   └── business/         # 业务组件
+│   ├── lib/                   # 工具函数
+│   ├── types/                 # TypeScript 类型定义
+│   └── context/              # React Context 目录
+└── public/                    # 静态资源
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 功能规划
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 已完成的开发
+- [x] 项目初始化
+- [x] 基础环境配置
+- [x] shadcn 组件库集成
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 进行中的开发
+- [ ] 商城首页布局
+- [ ] 商品列表组件
+- [ ] 购物车组件
+- [ ] 用户信息组件
 
-## Learn More
+### 待完成的开发
+- [ ] Props 传递示例：商品列表 -> 商品卡片
+- [ ] Context 示例：用户信息、主题切换
+- [ ] 状态管理示例：购物车功能
 
-To learn more about Next.js, take a look at the following resources:
+## 组件通信示例
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 1. Props 传递
+- 商品列表向商品卡片传递商品信息
+- 商品卡片向父组件传递"加入购物车"事件
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 2. Context 通信
+- 用户信息在整个应用中共享
+- 主题设置在全局共享
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 3. 状态管理
+- 购物车数据的全局管理
+- 商品筛选条件的状态管理
